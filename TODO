@@ -1,0 +1,10 @@
+
+Problems:
+  ☐ 通过pip直接安装的rosdepc没有作用,但是通过鱼c工具是没有问题的
+  ☐ 自带的CMakelists.txt有问题,直接删除构建即可
+  ☐ 缺少gazebo包 sudo apt-get install ros-noetic-gazebo-ros-pkgs
+  ☐ ERROR: cannot launch node of type [controller_manager/spawner]: controller_manager
+  sudo apt-get install ros-noetic-controller-manager
+
+  gazebo中模型没有颜色,需要禁用掉虚拟机的3d加速显示
+
