@@ -1,0 +1,5 @@
+geometry_msgs/Pose pose
+float32[] ref_joint
+---
+float32[] joint
+bool result

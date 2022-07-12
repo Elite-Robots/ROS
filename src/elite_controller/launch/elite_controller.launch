@@ -1,0 +1,14 @@
+<launch>
+    <arg name="robot" default="ec63" />
+    <arg name="param_file" default="$(find elite_controller)/config/$(arg robot).yaml" />
+    <arg name="robot_ip" default="192.168.1.200" />
+    <node pkg="elite_controller" name="elite_controller" type="elite_controller_node.py"  output="screen">
+    </node>
+    <include file="$(find elite_driver)/launch/elite_driver.launch">
+        <arg name="robot_name" value="$(arg robot)"/>
+        <arg name="param_file" value="$(arg param_file)"/>
+        <arg name="robot_ip" value="$(arg robot_ip)"/>
+    </include>
+    <!-- Laucnh robot states gen tf -->
+    <!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" /> -->
+</launch>

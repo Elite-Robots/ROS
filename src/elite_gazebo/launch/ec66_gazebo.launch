@@ -1,0 +1,18 @@
+<launch>
+  <arg name="spawn_z" default="1" />
+  <arg name="controllers" default="joint_state_controller manipulator_controller" />
+  <param name="robot_description" textfile="$(find elite_description)/urdf/gazebo/ec66_description.urdf" />
+  <rosparam file="$(find elite_gazebo)/config/ec66/ec66_controllers.yaml" command="load" />
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch" />
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"></node>
+
+  <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model" args="
+      -urdf
+      -param robot_description
+      -model ec66
+      -z $(arg spawn_z)" output="screen" respawn="false" />
+
+  <node name="ros_control_controller_spawner" pkg="controller_manager" type="spawner" args="$(arg controllers)" output="screen" respawn="false" />
+</launch>

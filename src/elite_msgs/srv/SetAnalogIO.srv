@@ -1,0 +1,4 @@
+int32 address
+float32 value
+---
+bool result

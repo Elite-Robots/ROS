@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: elite_description
+    relative_path: urdf/ec66_description.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/ec66.srdf
+  CONFIG:
+    author_name: fishros
+    author_email: fishros@foxmail.com
+    generated_timestamp: 1651503757

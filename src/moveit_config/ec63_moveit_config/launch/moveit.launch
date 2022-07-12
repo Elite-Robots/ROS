@@ -1,0 +1,36 @@
+<launch>
+    <!-- Choose controller manager: fake, sim, or real -->
+    <arg name="mode" default="sim" />
+    <arg name="debug" default="false" />
+    <group if="$(eval arg('mode') == 'fake')">
+        <!-- Launch moveit -->
+        <include file="$(find ec63_moveit_config)/launch/demo.launch">
+            <arg name="debug" default="$(arg debug)" />
+        </include>
+    </group>
+    <group if="$(eval arg('mode') == 'sim')">
+        <!-- Launch moveit -->
+        <include file="$(find ec63_moveit_config)/launch/move_group.launch">
+            <arg name="debug" default="$(arg debug)" />
+        </include>
+        <!-- Launch RVIZ -->
+        <include file="$(find ec63_moveit_config)/launch/moveit_rviz.launch">
+            <arg name="rviz_config" value="$(find ec63_moveit_config)/launch/moveit.rviz"/>
+            <arg name="debug" default="$(arg debug)" />
+        </include>
+    </group>
+    <group if="$(eval arg('mode') == 'real')">
+        <!-- Launch moveit -->
+        <include file="$(find ec63_moveit_config)/launch/move_group.launch">
+            <arg name="debug" default="$(arg debug)" />
+            <arg name="load_robot_description" value="true"/>
+        </include>
+        <!-- Launch RVIZ -->
+        <include file="$(find ec63_moveit_config)/launch/moveit_rviz.launch">
+            <arg name="rviz_config" value="$(find ec63_moveit_config)/launch/moveit.rviz"/>
+            <arg name="debug" default="$(arg debug)" />
+        </include>
+    </group>
+
+</launch>
+  

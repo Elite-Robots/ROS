@@ -1,0 +1,27 @@
+<launch>
+    <arg name="robot" default="ec63" />
+    <arg name="mode" default="sim" />
+    <arg name="debug" default="false" />
+
+    <group if="$(eval arg('robot') == 'ec63')">
+        <include file="$(find ec63_moveit_config)/launch/moveit.launch">
+            <arg name="mode" value="$(arg mode)"/>
+            <arg name="debug" value="$(arg debug)"/>
+        </include>
+    </group>
+
+    <group if="$(eval arg('robot') == 'ec66')">
+        <include file="$(find ec66_moveit_config)/launch/moveit.launch">
+            <arg name="mode" value="$(arg mode)"/>
+            <arg name="debug" value="$(arg debug)"/>
+        </include>
+    </group>
+
+    <group if="$(eval arg('robot') == 'ec612')">
+        <include file="$(find ec612_moveit_config)/launch/moveit.launch">
+            <arg name="mode" value="$(arg mode)"/>
+            <arg name="debug" value="$(arg debug)"/>
+        </include>
+    </group>
+
+</launch>

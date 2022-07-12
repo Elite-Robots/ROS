@@ -1,0 +1,7 @@
+float32[] target_joint #(list): 目标关节数据,为8个,6个会报错
+float32 speed # (float): 关节速度百分比
+float32 acc #(int, optional): 加速度,不写默认为0. Defaults to 0.
+float32 dec #(int, optional): 减速度,不写默认为0. Defaults to 0.
+bool is_blocking # 是否阻塞运行，默认阻塞
+---
+bool result

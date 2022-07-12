@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="ec63">
+    <link name="world" />
+    <joint name="world_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <parent link="world" />
+        <child link="base_link" />
+    </joint>
+    <link name="base_link">
+    <inertial>
+        <origin xyz="6.6025E-05 1.6931E-05 0.036471" rpy="0 0 0" />
+        <mass value="0.3647" />
+        <inertia ixx="0.00059057" ixy="6.2306E-07" ixz="6.6029E-07" iyy="0.00058934" iyz="-4.8028E-08"
+            izz="0.00074656" />
+    </inertial>
+    <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+            <mesh filename="package://elite_description/meshes/ec63/base_link.STL" />
+        </geometry>
+        <material name="">
+            <color rgba="0.79216 0.81961 0.93333 1" />
+        </material>
+    </visual>
+    <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+            <mesh filename="package://elite_description/meshes/ec63/base_link.STL" />
+        </geometry>
+    </collision>
+    </link>
+    <link name="link1">
+    <inertial>
+        <origin xyz="-5.9693298609962E-07 0.00718798730554815 0.00130597011750025" rpy="0 0 0" />
+        <mass value="1.0468989469595" />
+        <inertia ixx="0.00131622835302873" ixy="1.33626024644229E-08" ixz="1.22267487012503E-08"
+            iyy="0.00121041697616178" iyz="-0.000167494836949108" izz="0.00140200332966305" />
+    </inertial>
+    <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+            <mesh filename="package://elite_description/meshes/ec63/link1.STL" />
+        </geometry>
+        <material name="">
+            <color rgba="1 1 1 1" />
+        </material>
+    </visual>
+    <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+            <mesh filename="package://elite_description/meshes/ec63/link1.STL" />
+        </geometry>
+    </collision>
+    </link>
+    <joint name="joint1" type="revolute">
+        <origin xyz="0 0 0.14" rpy="0 0 0" />
+        <parent link="base_link" />
+        <child link="link1" />
+        <axis xyz="0 0 1" />
+        <limit lower="-6.2832" upper="6.2832" effort="90" velocity="3.3161" />
+    </joint>
+    <link name="link2">
+    <inertial>
+        <origin xyz="0.13499 -8.1271E-07 0.12053" rpy="0 0 0" />
+        <mass value="2.6439" />
+        <inertia ixx="0.0032939" ixy="-2.7429E-08" ixz="-3.997E-09" iyy="0.0044238" iyz="-1.4367E-07" izz="0.004596" />
+    </inertial>
+    <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+            <mesh filename="package://elite_description/meshes/ec63/link2.STL" />
+        </geometry>
+        <material name="">
+            <color rgba="1 1 1 1" />
+        </material>
+    </visual>
+    <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+            <mesh filename="package://elite_description/meshes/ec63/link2.STL" />
+        </geometry>
+    </collision>
+    </link>
+    <joint name="joint2" type="revolute">
+        <origin xyz="0 0 0" rpy="-1.5708 0 0" />
+        <parent link="link1" />
+        <child link="link2" />
+        <axis xyz="0 0 1" />
+        <limit lower="-6.2832" upper="6.2832" effort="90" velocity="3.3161" />
+    </joint>
+    <link name="link3">
+    <inertial>
+        <origin xyz="0.12895 -1.241E-05 0.011444" rpy="0 0 0" />
+        <mass value="1.4492" />
+        <inertia ixx="0.0012764" ixy="-3.0636E-08" ixz="7.348E-05" iyy="0.0020529" iyz="-2.1502E-07" izz="0.0020542" />
+    </inertial>
+    <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+            <mesh filename="package://elite_description/meshes/ec63/link3.STL" />
+        </geometry>
+        <material name="">
+            <color rgba="1 1 1 1" />
+        </material>
+    </visual>
+    <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+            <mesh filename="package://elite_description/meshes/ec63/link3.STL" />
+        </geometry>
+    </collision>
+    </link>
+    <joint name="joint3" type="revolute">
+        <origin xyz="0.27 0 0" rpy="0 0 0" />
+        <parent link="link2" />
+        <child link="link3" />
+        <axis xyz="0 0 1" />
+        <limit lower="-2.7925" upper="2.7925" effort="90" velocity="3.3161" />
+    </joint>
+    <link name="link4">
+    <inertial>
+        <origin xyz="-5.2284E-07 -0.00070291 0.097494" rpy="0 0 0" />
+        <mass value="0.53436" />
+        <inertia ixx="0.00041486" ixy="-4.4868E-09" ixz="-1.0989E-09" iyy="0.0004403" iyz="-5.8283E-05"
+            izz="0.00037669" />
+    </inertial>
+    <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+            <mesh filename="package://elite_description/meshes/ec63/link4.STL" />
+        </geometry>
+        <material name="">
+            <color rgba="1 1 1 1" />
+        </material>
+    </visual>
+    <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+            <mesh filename="package://elite_description/meshes/ec63/link4.STL" />
+        </geometry>
+    </collision>
+    </link>
+    <joint name="joint4" type="revolute">
+        <origin xyz="0.256 0 0" rpy="0 0 0" />
+        <parent link="link3" />
+        <child link="link4" />
+        <axis xyz="0 0 1" />
+        <limit lower="-6.2832" upper="6.2832" effort="20" velocity="4.5379" />
+    </joint>
+    <link name="link5">
+    <inertial>
+        <origin xyz="-5.2273E-07 -0.0012029 0.091994" rpy="0 0 0" />
+        <mass value="0.53436" />
+        <inertia ixx="0.00041486" ixy="-4.4901E-09" ixz="-1.1099E-09" iyy="0.0004403" iyz="-5.8283E-05"
+            izz="0.00037669" />
+    </inertial>
+    <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+            <mesh filename="package://elite_description/meshes/ec63/link5.STL" />
+        </geometry>
+        <material name="">
+            <color rgba="1 1 1 1" />
+        </material>
+    </visual>
+    <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+            <mesh filename="package://elite_description/meshes/ec63/link5.STL" />
+        </geometry>
+    </collision>
+    </link>
+    <joint name="joint5" type="revolute">
+        <origin xyz="0 0 0.103" rpy="-1.5708 0 0" />
+        <parent link="link4" />
+        <child link="link5" />
+        <axis xyz="0 0 1" />
+        <limit lower="-6.2832" upper="6.2832" effort="20" velocity="4.5379" />
+    </joint>
+    <link name="link6">
+    <inertial>
+        <origin xyz="7.5563E-12 2.6132E-05 -0.021697" rpy="0 0 0" />
+        <mass value="0.16467" />
+        <inertia ixx="7.7607E-05" ixy="1.4753E-10" ixz="1.0602E-13" iyy="7.7808E-05" iyz="-7.8486E-08"
+            izz="0.00011753" />
+    </inertial>
+    <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+            <mesh filename="package://elite_description/meshes/ec63/link6.STL" />
+        </geometry>
+        <material name="">
+            <color rgba="0.79216 0.81961 0.93333 1" />
+        </material>
+    </visual>
+    <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+            <mesh filename="package://elite_description/meshes/ec63/link6.STL" />
+        </geometry>
+    </collision>
+    </link>
+    <joint name="joint6" type="revolute">
+        <origin xyz="0 0.089 0.098" rpy="-1.5708 0 0" />
+        <parent link="link5" />
+        <child link="link6" />
+        <axis xyz="0 0 1" />
+        <limit lower="-6.2832" upper="6.2832" effort="20" velocity="4.5379" />
+    </joint>
+    <link name="flan" />
+    <joint name="flan_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <parent link="link6" />
+        <child link="flan" />
+    </joint>
+</robot>

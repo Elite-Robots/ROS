@@ -1,0 +1,10 @@
+<launch>
+    <arg name="robot_name" default="ec66" />
+    <arg name="robot_ip" default="" />
+    <arg name="param_file" default="$(find elite_driver)/config/$(arg robot_name)_driver.yaml" />
+    <rosparam command="load" file="$(arg param_file)"/>
+    <node pkg="elite_driver" name="elite_driver" type="elite_driver_node.py" output="screen">
+        <!-- <arg name="ip_address" value="$(arg robot_ip)"/> -->
+        <param name="ip_address" type="string" value="$(arg robot_ip)"/>
+    </node>
+</launch>

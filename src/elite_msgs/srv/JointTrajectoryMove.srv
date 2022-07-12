@@ -1,0 +1,6 @@
+uint64 length
+float64[] time_stamp
+float64[] joint
+bool is_blocking # 是否阻塞运行，默认阻塞
+---
+bool result

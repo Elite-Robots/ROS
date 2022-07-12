@@ -1,0 +1,6 @@
+elite_driver:
+  use_fake: False
+  loop_rate: 125
+  ip_address: 192.168.0.1
+  auto_connect: True
+  joint_name: ['joint1', 'joint2', 'joint3', 'joint4', 'joint5', 'joint6']

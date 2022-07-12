@@ -1,0 +1,8 @@
+float32[] target_joint # 目标关节数据
+uint32 speed # 直线速度: 1-3000;旋转角速度: 1-300;
+uint32 speed_type # 0为V直线速度,1为VR旋转角速度,2为AV,3为AVR. Defaults to None.
+float32 acc #(int, optional): 加速度,不写默认为0. Defaults to None.
+float32 dec #(int, optional): 减速度,不写默认为0. Defaults to None.
+bool is_blocking # 是否阻塞运行，默认阻塞
+---
+bool result
