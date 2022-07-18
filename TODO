@@ -8,3 +8,10 @@ Problems:
 
   gazebo中模型没有颜色,需要禁用掉虚拟机的3d加速显示
 
+  ☐ 仿真时出现Could not load controller 'joint_state_controller' because controller type 'joint_state_controller/JointStateController' does not exist
+    sudo apt-get install ros-noetic-position-controllers
+    sudo apt-get install ros-noetic-effort-controllers
+    sudo apt-get install ros-noetic-joint-state-controller
+
+
+  ☐ display中的模型 通过拖动滚动条时不会移动的
