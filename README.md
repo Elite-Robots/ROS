@@ -3,6 +3,21 @@
 - 系统平台：Ubuntu20.04 
 - ROS版本：Noetic
 
+
+
+## 文件组织结构
+
+```
+.
+├── elite_controller		# 艾利特机器人ros控制器,当控制真实机器人时使用			
+├── elite_description		# 机器人描述文件功能包
+├── elite_driver			# 机器人的驱动程序功能包
+├── elite_gazebo			# gazebo仿真功能包
+├── elite_moveit			# moveit功能包
+├── elite_msgs				# 自定义消息功能包
+└── moveit_config			# moveIt Config 功能包
+```
+
 ## 1.安装编译
 
 ### 1.1 安装依赖及构建
