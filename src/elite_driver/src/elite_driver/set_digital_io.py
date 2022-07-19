@@ -26,12 +26,12 @@ class SetDigitalIOService():
         rospy.loginfo("SetDigitalIOService is started...")
         self.set_io_server = rospy.Service(
             "set_digital_io_server", SetIO, self.handle_set_digital_io_)
-        self.res = SetIOResponse()
 
     def handle_set_digital_io_(self, req):
         """处理设置请求"""
+        res = SetIOResponse()
         result = self.elite_robot.set_digital_io(  # pylint: disable=E1101
             req.address, req.value)
-        self.res.result = result
+        res.result = result
         print(f"result:{result},type:{type(result)}")
-        return self.res
+        return res

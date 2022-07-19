@@ -19,12 +19,12 @@ class JointMoveService():  # pylint: disable=R0903
         rospy.loginfo("JointMoveService is started...")
         self.cart_move_server = rospy.Service(
             "joint_move", JointMove, self.handle_joint_move)
-        self.res = JointMoveResponse()
 
     def handle_joint_move(self, req: JointMoveRequest) -> JointMoveResponse:
         """
         处理关节运动请求
         """
+        self.res = JointMoveResponse()
         joint_point_ = req.target_joint
         speed_ = req.speed
         acc_ = req.acc
@@ -35,7 +35,7 @@ class JointMoveService():  # pylint: disable=R0903
         if is_block_:
             self.elite_robot.wait_stop()  # pylint: disable=E1101
         if type(result_) == bool:
-            self.res.result = result_
+            res.result = result_
         else:
-            self.res.result = result_[0]
-        return self.res
+            res.result = result_[0]
+        return res

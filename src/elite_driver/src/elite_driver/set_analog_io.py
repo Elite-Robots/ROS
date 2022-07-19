@@ -17,12 +17,12 @@ class SetAnalogIOService():
         rospy.loginfo("SetAnalogIOService is started...")
         self.set_io_server = rospy.Service(
             "set_analog_io", SetAnalogIO, self.handle_set_analog_io_)
-        self.res = SetAnalogIOResponse()
 
     def handle_set_analog_io_(self, req):
+        res = SetAnalogIOResponse()
         """处理设置模拟输出"""
         result = self.elite_robot.set_analog_output(  # pylint: disable=E1101
             req.address, req.value)
-        self.res.result = result
+        res.result = result
         print(f"result:{result}")
-        return self.res
+        return res

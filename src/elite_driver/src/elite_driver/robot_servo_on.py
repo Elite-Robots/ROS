@@ -17,10 +17,10 @@ class RobotServoOnService(): # pylint: disable=R0903
         rospy.loginfo("RobotServoOnService is started...")
         self.robot_servo_on_server = rospy.Service(
             "robot_servo_on", RobotServoOn, self.handle_robot_servo_on_)
-        self.res = RobotServoOnResponse()
 
     def handle_robot_servo_on_(self, req):  # pylint: disable=W0613
+        res = RobotServoOnResponse()
         """处理机器人伺服上使能"""
         result_ = self.elite_robot.robot_servo_on()  # pylint: disable=E1101
-        self.res = result_
-        return self.res
+        res = result_
+        return res

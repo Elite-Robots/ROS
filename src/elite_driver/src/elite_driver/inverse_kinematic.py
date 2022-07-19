@@ -20,12 +20,12 @@ class InverseKinematicService():  # pylint: disable=R0903
         rospy.loginfo("InverseKinematicService is started...")
         self.forward_kinematic_server = rospy.Service(
             "inverse_kinematic", InverseKinematic, self.handle_inverse_kinematic)
-        self.res = InverseKinematicResponse()
 
     def handle_inverse_kinematic(self, req) -> None:
         """
         处理请求函数
         """
+        self.res = InverseKinematicResponse()
         target_point = []
         target_point.append(req.pose.position.x)
         target_point.append(req.pose.position.y)
@@ -40,8 +40,8 @@ class InverseKinematicService():  # pylint: disable=R0903
         result = self.elite_robot.get_inverse_kinematic(  # pylint: disable=E1101
             target_point, req.ref_joint,unit_type=0)
         if type(result) == tuple:
-            self.res.result = False
+            res.result = False
         else:
-            self.res.joint = result
-            self.res.result = True
-        return self.res
+            res.joint = result
+            res.result = True
+        return res
