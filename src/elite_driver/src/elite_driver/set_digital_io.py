@@ -1,9 +1,16 @@
+'''
+Author: Elite_zhangjunjie
+CreateDate: 
+LastEditors: Elite_zhangjunjie
+LastEditTime: 2022-07-19 18:15:20
+Description: 
+'''
 #!/usr/bin/env python3
 """
 ################################################################################
 # Copyright(C) 2022-2027 Elite. All Rights Reserved.
 # @brief : 简介
-# @author: 作者
+# @author: elite
 ################################################################################
 """
 import rospy
@@ -26,5 +33,5 @@ class SetDigitalIOService():
         result = self.elite_robot.set_digital_io(  # pylint: disable=E1101
             req.address, req.value)
         self.res.result = result
-        print(f"result:{result}")
+        print(f"result:{result},type:{type(result)}")
         return self.res
