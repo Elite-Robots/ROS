@@ -12,7 +12,7 @@ debug(){
     echo -e "\e[33m$1 \e[0m" 
 }
 
-pip_install() {
+pipInstall() {
     debug "$1 will be installed"
     if ! pip3 install "$1"; then
         error "$1 install failed"
@@ -22,7 +22,7 @@ pip_install() {
    echo '------------------------------------------'
 }
 
-apt_install() {
+aptInstall() {
     debug "$1 will be installed"
     # if sudo apt-get install "$1" -y; then
     if ! echo "$1"; then
@@ -35,19 +35,19 @@ apt_install() {
 
 }
 
-apt_install python3-pip
+aptInstall python3-pip
 
-pip_packages=(
+pipPackages=(
     elirobots
     transforms3d
     pytest
     rosdepc
 )
-for package in "${pip_packages[@]}"; do
-    pip_install "$package"
+for package in "${pipPackages[@]}"; do
+    pipInstall "$package"
 done
 
-install_packages=(
+installPackages=(
     "ros-noetic-gazebo-ros-pkgs"
     "ros-noetic-controller-manager"
     "ros-noetic-joint-state-controller"
@@ -55,6 +55,6 @@ install_packages=(
     "ros-noetic-effort-controllers"
 )
 
-for package in "${install_packages[@]}"; do
-    apt_install "$package"
+for package in "${installPackages[@]}"; do
+    aptInstall "$package"
 done
