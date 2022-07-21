@@ -24,7 +24,7 @@ class JointMoveService():  # pylint: disable=R0903
         """
         处理关节运动请求
         """
-        self.res = JointMoveResponse()
+        res = JointMoveResponse()
         joint_point_ = req.target_joint
         speed_ = req.speed
         acc_ = req.acc
