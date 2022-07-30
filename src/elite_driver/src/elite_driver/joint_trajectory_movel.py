@@ -19,9 +19,9 @@ class JointTrajectoryMoveLService():  # pylint: disable=R0903
     def __init__(self) -> None:
         rospy.loginfo("JointTrajectoryMoveLService is started...")
         self.joint_trajectory_move_server = rospy.Service(
-            'joint_trajectory_movel', JointTrajectoryMove, self.handle_trajectory_move_)
+            'joint_trajectory_movel', JointTrajectoryMove, self.handle_trajectory_movel_)
 
-    def handle_trajectory_move_(self, request: JointTrajectoryMoveRequest):
+    def handle_trajectory_movel_(self, request: JointTrajectoryMoveRequest):
         """处理运动请求"""
         response = JointTrajectoryMoveResponse()
         length = request.length
