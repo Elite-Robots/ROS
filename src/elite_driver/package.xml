@@ -21,7 +21,7 @@
   <!-- Example: -->
   <!-- <url type="website">http://wiki.ros.org/elite_driver</url> -->
 
-  <author email="elite@elite.com">elite</author>
+  <author email="elite@elibot.cn">elite</author>
   <buildtool_depend>catkin</buildtool_depend>
 
 
