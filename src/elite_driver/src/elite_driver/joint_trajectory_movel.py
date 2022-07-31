@@ -11,6 +11,7 @@ import rospy
 from elite_msgs.srv import JointTrajectoryMove, JointTrajectoryMoveResponse, JointTrajectoryMoveRequest
 # from elite._moveml import EC
 from elite import EC
+from loguru import logger
 
 
 class JointTrajectoryMoveLService():  # pylint: disable=R0903
@@ -27,7 +28,7 @@ class JointTrajectoryMoveLService():  # pylint: disable=R0903
         length = request.length
         time_stamp = list(request.time_stamp)
         joint = list(request.joint)
-
+        self.elite_robot: EC
         self.elite_robot.ml_init(length=length, point_type=0, ref_joint=self.elite_robot.current_joint, ref_frame=[
                                  0, 0, 0, 0, 0, 0], ret_flag=0)
         for i in range(len(time_stamp)):
