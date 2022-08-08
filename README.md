@@ -1,9 +1,7 @@
-# Elite-Robot
+# Elite-Robot-ROS
 
 - 系统平台：Ubuntu20.04 
 - ROS版本：Noetic
-
-
 
 ## 文件组织结构
 
@@ -22,28 +20,79 @@
 
 ### 1.1 安装依赖及构建
 
-安装SDK及相关依赖
+#### 安装SDK及相关依赖
 
 ```
 sudo apt install python3-pip
+
 # 安装最新版SDK
-pip install git+https://ghproxy.net/https://github.com/JunJie-zhang-o/eliterobot.git
 pip install elirobots transforms3d pytest rosdepc
 
-```
-
-安装依赖，使用rosdepc
-
-```
 sudo rosdepc init
+
 rosdepc update
+```
+
+#### Elite Robots ROS开发包下载与编译
+
+```
+# 创建工作空间目录
+mkdir ~/catkin_ws && cd ~/catkin_ws
+
+# 克隆Elite ROS 功能包
+git clone git@github.com:Elite-Robots/ROS.git
+
+cd ROS
+
+# 依赖安装
 rosdepc install --from-path src --ignore-src -y -r
-```
 
-构建代码
-
-```
+# 编译
 catkin_make
+```
+
+### 1.2 工具脚本的使用
+
+额外的，我们还提供了几个工具脚本的使用，以使您尽量的缩短在环境部署上的时间
+
+```
+└── tools
+    ├── 00_fishros_install.sh
+    ├── 01_depends_install.sh
+    └── 02_source_rosws_env.sh
+```
+
+### 00_fishros_install.sh
+
+该脚本是一个开源的自动安装ros以及相关环境配置的脚本，通过该脚本可以一键安装ROS，一键安装VSCode，一键更换系统源以及一键配置rosdep等多种功能。开源地址：https://github.com/fishros/install
+
+#### 使用方法
+
+```
+cd tools
+./00_fishros_install.sh
+```
+
+### 01_depends_install.sh
+
+在使用ROS平台的相关软件时，会出现一些由于软件包未安装导致运行时出现的报错，基于已有的一些软件包，我们制作了一个一键安装的脚本。如果您再使用中发现有一些其他的软件包我们并未添加进去，可以通过issues或邮件告知我们，我们第一时间进行更新。
+
+#### 使用方法
+
+```
+cd tools
+./01_depends_install.sh
+```
+
+### 02_source_rosws_env.sh
+
+在使用ros时，需要在终端中频繁的将ros的工作空间加入环境变量中，通过该脚本，将当前的工作空间自动写入环境变量中，后续无需频繁的`source devel/setup.bashrc`.
+
+#### 使用方法
+
+```
+cd tools
+./02_source_rosws_env.sh
 ```
 
 ## 2.启动
@@ -82,9 +131,7 @@ roslaunch elite_moveit elite_moveit.launch robot:=ec66 mode:=sim
 
 ### 2.3.真机模式
 
-需要先修改真机IP地址，获取机器人IP方式如下：
-
-从示教器......
+需要先修改真机IP地址，获取机器人IP方式如下：https://bbs.elibot.cn/forum/detail/topic/87.html
 
 保证电脑可以通过ping指令与真实机械臂相互连接后，将真机IP地址作为参数传入launch指令中`robot_ip:=192.168.1.201 `
 
@@ -102,3 +149,10 @@ source devel/setup.bash
 roslaunch elite_moveit elite_moveit.launch robot:=ec66 mode:=real 
 ```
 
+## 问题反馈
+
+如果你发现了任何错误，请联系我们！！！
+
+论坛：https://bbs.elibot.cn/
+
+邮箱：elite@elibot.cn
