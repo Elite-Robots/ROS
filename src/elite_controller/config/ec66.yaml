@@ -4,5 +4,5 @@ elite_driver:
   auto_connect: True
   joint_name: ['joint1', 'joint2', 'joint3', 'joint4', 'joint5', 'joint6']
 elite_controller:
-  trajectory_service_name: joint_trajectory_movet
+  trajectory_service_name: joint_trajectory_movel
   interpolate_sample_time: 0.008
