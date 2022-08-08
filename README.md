@@ -26,7 +26,7 @@
 sudo apt install python3-pip
 
 # 安装最新版SDK
-pip install elirobots transforms3d pytest rosdepc
+pip3 install elirobots transforms3d pytest rosdepc
 
 sudo rosdepc init
 
@@ -62,7 +62,7 @@ catkin_make
     └── 02_source_rosws_env.sh
 ```
 
-### 00_fishros_install.sh
+### 00_auto_install.sh
 
 该脚本是一个开源的自动安装ros以及相关环境配置的脚本，通过该脚本可以一键安装ROS，一键安装VSCode，一键更换系统源以及一键配置rosdep等多种功能。开源地址：https://github.com/fishros/install
 
