@@ -6,12 +6,12 @@
 # @author: Elite
 ################################################################################
 """
-from time import time
+from time import sleep
 import rospy
 from elite_msgs.srv import JointTrajectoryMove, JointTrajectoryMoveResponse, JointTrajectoryMoveRequest
 # from elite._moveml import EC
 from elite import EC
-from loguru import logger
+
 
 
 class JointTrajectoryMoveLService():  # pylint: disable=R0903
@@ -36,6 +36,7 @@ class JointTrajectoryMoveLService():  # pylint: disable=R0903
             temp_time = time_stamp[i]
             self.elite_robot.ml_push(  # pylint: disable=E1101
                 temp_time, temp_joint)
+            sleep(0.005)
         print("end_push", self.elite_robot.ml_end_push())  # pylint: disable=E1101
         if self.elite_robot.ml_check_push_result() == EC.MlPushResult.CORRECT:
             self.elite_robot.ml_run(  # pylint: disable=E1101
