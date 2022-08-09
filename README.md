@@ -70,7 +70,7 @@ catkin_make
 
 ```
 cd tools
-./00_fishros_install.sh
+./00_auto_install.sh
 ```
 
 ### 01_depends_install.sh
