@@ -4,7 +4,7 @@ toolPath=$(pwd)
 
 wsPath=${toolPath%%tools*}
 
-rosEnvFile=${wsPath}"devel/setup.bash"
+rosEnvFile=${wsPath}"/devel/setup.bash"
 
 echo "The path to the current workspace is ${wsPath}"
 sleep 0.5
