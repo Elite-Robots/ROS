@@ -5,9 +5,9 @@
 
 ## README
 
-中文：
+[Chinese README](https://github.com/Elite-Robots/ROS/blob/master/README.CH.md)
 
-English:
+[English README](https://github.com/Elite-Robots/ROS/blob/master/README.md)
 
 ## 文件组织结构
 
