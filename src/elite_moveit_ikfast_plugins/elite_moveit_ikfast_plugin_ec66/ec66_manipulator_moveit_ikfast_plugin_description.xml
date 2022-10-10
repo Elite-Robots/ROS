@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<library path="lib/libec66_manipulator_moveit_ikfast_plugin">
+  <class name="ec66_manipulator/IKFastKinematicsPlugin" type="ec66_manipulator::IKFastKinematicsPlugin" base_class_type="kinematics::KinematicsBase">
+    <description>IKFast61 plugin for closed-form kinematics of ec66 manipulator</description>
+  </class>
+</library>
