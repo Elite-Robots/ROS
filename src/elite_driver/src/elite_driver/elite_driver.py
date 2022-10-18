@@ -31,7 +31,7 @@ class EliteDriver(JointStatePublisher, JointTrajectoryMoveTService,
                   InverseKinematicService, JointMoveService, CartMoveService, RobotServoOnService,
                   SetAnalogIOService, StopMoveService, SetDigitalIOService, RobotStatePublisher):
     """
-    艾力特机械臂ROS驱动层实现
+    Elite机械臂ROS驱动层实现
     """
 
     def __init__(self) -> None:
