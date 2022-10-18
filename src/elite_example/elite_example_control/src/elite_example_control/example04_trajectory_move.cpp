@@ -86,7 +86,7 @@ int main(int argc, char **argv)
     std::vector<geometry_msgs::Pose> waypoints;
     for(int i=0;i<30;i++)
     {
-        current_pose.pose.position.z += 0.01;
+        current_pose.pose.position.z -= 0.01;
         waypoints.push_back(current_pose.pose);
     }
     cart_move_with_waypoints(move_group_interface, waypoints);
