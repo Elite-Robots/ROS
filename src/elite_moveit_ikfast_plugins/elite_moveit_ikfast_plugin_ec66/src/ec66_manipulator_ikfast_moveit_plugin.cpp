@@ -680,7 +680,7 @@ void IKFastKinematicsPlugin::getSolution(const IkSolutionList<IkReal>& solutions
   const IkSolutionBase<IkReal>& sol = solutions.GetSolution(i);
   std::vector<IkReal> vsolfree(sol.GetFree().size());
   sol.GetSolution(&solution[0], vsolfree.size() > 0 ? &vsolfree[0] : nullptr);
-
+  
   // rotate joints by +/-360° where it is possible and useful
   for (std::size_t i = 0; i < num_joints_; ++i)
   {
@@ -991,7 +991,7 @@ bool IKFastKinematicsPlugin::searchPositionIK(const geometry_msgs::Pose& ik_pose
     IkSolutionList<IkReal> solutions;
     size_t numsol = solve(frame, vfree, solutions);
 
-    ROS_DEBUG_STREAM_NAMED(name_, "Found " << numsol << " solutions from IKFast");
+    ROS_WARN_STREAM_NAMED(name_, "Found " << numsol << " solutions from IKFast");
 
     if (numsol > 0)
     {
@@ -1083,7 +1083,7 @@ bool IKFastKinematicsPlugin::getPositionIK(const geometry_msgs::Pose& ik_pose, c
                                            std::vector<double>& solution, moveit_msgs::MoveItErrorCodes& error_code,
                                            const kinematics::KinematicsQueryOptions& options) const
 {
-  ROS_DEBUG_STREAM_NAMED(name_, "getPositionIK");
+  // ROS_WARN_STREAM_NAMED(name_, "getPositionIK");
 
   if (!initialized_)
   {
@@ -1126,7 +1126,7 @@ bool IKFastKinematicsPlugin::getPositionIK(const geometry_msgs::Pose& ik_pose, c
 
   IkSolutionList<IkReal> solutions;
   size_t numsol = solve(frame, vfree, solutions);
-  ROS_DEBUG_STREAM_NAMED(name_, "Found " << numsol << " solutions from IKFast");
+  // ROS_WARN_STREAM_NAMED(name_, "Found " << numsol << " solutions from IKFast");
 
   std::vector<LimitObeyingSol> solutions_obey_limits;
 
@@ -1194,7 +1194,7 @@ bool IKFastKinematicsPlugin::getPositionIK(const std::vector<geometry_msgs::Pose
                                            kinematics::KinematicsResult& result,
                                            const kinematics::KinematicsQueryOptions& options) const
 {
-  ROS_DEBUG_STREAM_NAMED(name_, "getPositionIK with multiple solutions");
+  ROS_WARN("getPositionIK with multiple ik_poses=%d solutions", ik_poses.size());
 
   if (!initialized_)
   {
@@ -1276,7 +1276,7 @@ bool IKFastKinematicsPlugin::getPositionIK(const std::vector<geometry_msgs::Pose
     solution_set.push_back(ik_solutions);
   }
 
-  ROS_DEBUG_STREAM_NAMED(name_, "Found " << numsol << " solutions from IKFast");
+  ROS_WARN_STREAM_NAMED(name_, "Found " << numsol << " solutions from IKFast");
   bool solutions_found = false;
   if (numsol > 0)
   {
@@ -1307,6 +1307,7 @@ bool IKFastKinematicsPlugin::getPositionIK(const std::vector<geometry_msgs::Pose
             break;
           }
         }
+
         if (obeys_limits)
         {
           // All elements of solution obey limits

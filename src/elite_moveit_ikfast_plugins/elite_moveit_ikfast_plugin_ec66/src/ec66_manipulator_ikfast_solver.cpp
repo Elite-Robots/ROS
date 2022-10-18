@@ -419,7 +419,9 @@ r20 = eerot[2*3+0];
 r21 = eerot[2*3+1];
 r22 = eerot[2*3+2];
 px = eetrans[0]; py = eetrans[1]; pz = eetrans[2];
-
+// ROS_WARN("%s,%d,%s",__FILE__,__LINE__,__FUNCTION__);
+// ROS_WARN("%f %f %f %f   %f %f %f %f   %f %f %f %f",r00, r01, r02, px, r10, r11, r12, py, r20, r21, r22, pz);
+ROS_WARN("%f %f %f %f   %f %f %f %f   %f %f %f %f",r00, r01, r02, r10, r11, r12, r20, r21, r22, px, py, pz);
 new_r00=((-1.0)*r00);
 new_r01=((-1.0)*r01);
 new_r02=r02;
