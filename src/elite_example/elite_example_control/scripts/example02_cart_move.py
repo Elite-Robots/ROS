@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 from __future__ import print_function
+from turtle import turtles
 from six.moves import input
 
 import sys
@@ -102,11 +103,11 @@ class MoveGroupPythonInterfaceTutorial(object):
 
 def main():
     tutorial = MoveGroupPythonInterfaceTutorial("manipulator")
-    tutorial.joint_move(joint_goal=[0,-pi/2,pi/3, -pi/3,pi/2,0])
+    tutorial.joint_move(joint_goal=[0.01,-pi/1.5,pi/1.5, -pi/2,pi/2.0,0])
     # 笛卡尔空间运动
     pose_goal = tutorial.move_group.get_current_pose().pose
     print(pose_goal)
-    pose_goal.position.z -= 0.05
+    pose_goal.position.z -= 0.2
     print(pose_goal)
     input("按回车移动到目标位置")
     tutorial.cart_move(pose_goal)
