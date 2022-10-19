@@ -10,5 +10,5 @@ logs/
 
 tool
 docs
-CMakeLists.txt
 my*
+src/CMakeLists.txt
