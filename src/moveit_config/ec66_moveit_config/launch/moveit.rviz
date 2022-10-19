@@ -9,7 +9,6 @@ Panels:
         - /RobotModel1/Links1/flan1
         - /RobotModel1/Links1/link61
         - /TF1/Frames1
-        - /TF1/Frames1/flan1
         - /TF1/Tree1
       Splitter Ratio: 0.5
     Tree Height: 305
@@ -144,8 +143,8 @@ Visualization Manager:
         Interactive Marker Size: 0
         Joint Violation Color: 255; 0; 255
         Planning Group: manipulator
-        Query Goal State: false
-        Query Start State: true
+        Query Goal State: true
+        Query Start State: false
         Show Workspace: false
         Start State Alpha: 1
         Start State Color: 0; 255; 0
@@ -349,9 +348,9 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.6700001955032349
+      Pitch: 0.4100000262260437
       Target Frame: world
-      Yaw: 0.07177764922380447
+      Yaw: 5.714961051940918
     Saved: ~
 Window Geometry:
   Displays:
@@ -369,5 +368,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1908
-  X: 0
-  Y: 0
+  X: 30
+  Y: 1503
