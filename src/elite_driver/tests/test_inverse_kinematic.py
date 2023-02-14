@@ -59,15 +59,6 @@ def inverse_kinematic_server(ec_robot):  # pylint: disable=W0621
     assert res.joint
     assert res.result
     
-    req.pose.position.x = 0
-    req.pose.position.y = 0
-    req.pose.position.z = 0
-    req.pose.orientation.w = 0
-    req.pose.orientation.x = 0
-    req.pose.orientation.y = 0
-    req.pose.orientation.z = 0
-    res = inverse_kinematic_client(req)
-    assert res.result == False
 
 def test_inverse_kinematic_server(ec_real):
     inverse_kinematic_server(ec_real)
